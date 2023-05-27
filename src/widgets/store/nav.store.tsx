@@ -4,14 +4,14 @@ import { devtools } from "zustand/middleware";
 
 type Store = {
   isActive: boolean;
-  setIsActive: Dispatch<React.SetStateAction<boolean | null>>;
+  setIsActive: Dispatch<React.SetStateAction<boolean>>;
 };
 
 export const useStore = create(
   devtools<Store>(
     (set, get) => ({
       isActive: false,
-      setIsActive: (bool = null) => {
+      setIsActive: (bool) => {
         if (typeof bool === "boolean") {
           set({ isActive: bool });
           return;

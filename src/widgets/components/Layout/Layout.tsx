@@ -16,7 +16,7 @@ export const Layout: FC<Props> = ({ children }): JSX.Element => {
   const { setIsActive, isActive } = useStore();
 
   const [captcha, setCaptcha] = useState<string | null>(null);
-  // const [value, setValue] = useState<string>("");
+  const [value, setValue] = useState<string>("");
 
   console.log(captcha);
 
@@ -46,7 +46,7 @@ export const Layout: FC<Props> = ({ children }): JSX.Element => {
           </Text>
           <form ref={form} onSubmit={(e) => e.preventDefault()}>
             <Text type="h5">НОМЕР ТЕЛЕФОНА C WHATSAPP</Text>
-            <Input type="tel" />
+            <Input type="tel" value={value} setValue={setValue} />
             <div className={styles.captcha}>
               <ReCAPTCHA
                 sitekey="6LcRaPolAAAAANy9LLcMs7-1A2RHHFM32KMPI7fc"

@@ -1,8 +1,11 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import styles from "./Book.module.scss";
 import { Button, Input, Text } from "../../../shared";
 
 export const Book: FC = (): JSX.Element => {
+  const [valueTel, setValueTel] = useState<string>("");
+  const [valueName, setValueName] = useState<string>("");
+
   return (
     <div className={styles.book}>
       <img className={styles.img_preview} src="/i2.jpg" alt="preview" />
@@ -34,8 +37,17 @@ export const Book: FC = (): JSX.Element => {
           <form onSubmit={(e) => e.preventDefault()}>
             <Text type="h4">Забронировать апартамент сейчас</Text>
             <div className={styles.inputs}>
-              <Input placholder="Имя" />
-              <Input type="tel" placholder="Номер телефона *" />
+              <Input
+                placholder="Имя"
+                value={valueName}
+                setValue={setValueName}
+              />
+              <Input
+                type="tel"
+                placholder="Номер телефона *"
+                value={valueTel}
+                setValue={setValueTel}
+              />
             </div>
             <Button mt="2rem">Забронировать апартамент</Button>
           </form>

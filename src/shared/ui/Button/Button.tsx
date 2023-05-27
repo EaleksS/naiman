@@ -1,10 +1,10 @@
-import { FC, ReactNode } from "react";
+import { Dispatch, FC, ReactNode, SetStateAction } from "react";
 import styles from "./Button.module.scss";
 
 interface Props {
   type?: "default" | "primary";
   children: ReactNode;
-  onClick?: any;
+  onClick?: Dispatch<SetStateAction<any>>;
   mt?: string;
 }
 
@@ -20,7 +20,7 @@ export const Button: FC<Props> = ({
         <button
           className={`${styles.btn} ${styles.primary}`}
           style={{ marginTop: mt }}
-          onClick={() => onClick()}
+          onClick={onClick}
         >
           {children}
         </button>
@@ -31,7 +31,7 @@ export const Button: FC<Props> = ({
         <button
           className={`${styles.btn} ${styles.default}`}
           style={{ marginTop: mt }}
-          onClick={() => onClick()}
+          onClick={onClick}
         >
           {children}
         </button>

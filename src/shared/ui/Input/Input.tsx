@@ -5,8 +5,8 @@ import InputMask from "react-input-mask";
 interface Props {
   type?: "email" | "text" | "tel";
   placholder?: string;
-  value?: string;
-  setValue?: Dispatch<React.SetStateAction<string>>;
+  value: string;
+  setValue: Dispatch<React.SetStateAction<string>>;
 }
 
 export const Input: FC<Props> = ({
@@ -25,6 +25,8 @@ export const Input: FC<Props> = ({
               placeholder={
                 placholder ? placholder : "Введите тел.номер или эл.почту"
               }
+              value={value}
+              onChange={(e) => setValue(e.target.value)}
             />
           </div>
         </label>
@@ -38,6 +40,8 @@ export const Input: FC<Props> = ({
               mask="+7 (999) 999-99-99"
               name="message"
               placeholder={placholder ? placholder : "Введите тел.номер"}
+              value={value}
+              onChange={(e) => setValue(e.target.value)}
             ></InputMask>
             {/* <input
               type="tel"
@@ -54,6 +58,8 @@ export const Input: FC<Props> = ({
             <input
               type="text"
               placeholder={placholder ? placholder : "Текст"}
+              value={value}
+              onChange={(e) => setValue(e.target.value)}
             />
           </div>
         </label>
