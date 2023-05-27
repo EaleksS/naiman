@@ -1,0 +1,38 @@
+.advantages {
+  h2 {
+    text-align: center;
+  }
+
+  .items {
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 2rem;
+
+    .item {
+      padding: 1rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      height: 250px;
+
+      p {
+        height: 40px;
+      }
+
+      img {
+        width: 54px;
+        height: 54px;
+      }
+    }
+  }
+
+  .btn {
+    margin-top: 4rem;
+    display: flex;
+    justify-content: center;
+  }
+}

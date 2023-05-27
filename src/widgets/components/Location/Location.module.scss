@@ -1,0 +1,47 @@
+.location {
+  h2 {
+    text-align: center;
+  }
+
+  .items {
+    margin-top: 4rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .item {
+      padding: 1rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      width: 22%;
+
+      p {
+        height: 40px;
+      }
+
+      img {
+        width: 185px;
+        height: 185px;
+        object-fit: cover;
+        border-radius: 50%;
+
+        @media (min-width: 800px) {
+          transition: all 0.2s ease-in-out;
+
+          &:hover {
+            transform: scale(1.05);
+          }
+        }
+      }
+    }
+  }
+
+  .btn {
+    margin-top: 4rem;
+    display: flex;
+    justify-content: center;
+  }
+}

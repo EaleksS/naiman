@@ -1,0 +1,38 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 92px;
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    img {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  .nav {
+    margin: 0;
+    padding: 0;
+
+    ul {
+      display: flex;
+      gap: 3rem;
+
+      li {
+        cursor: pointer;
+
+        @media (min-width: 800px) {
+          transform: all 0.2s ease-in-out;
+          &:hover {
+            opacity: 0.5;
+          }
+        }
+      }
+    }
+  }
+}

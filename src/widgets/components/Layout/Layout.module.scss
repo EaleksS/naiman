@@ -1,0 +1,45 @@
+@import "/src/app/styles/variables";
+
+body {
+  background-color: $bg-color;
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.container {
+  background-color: rgba(57, 179, 91);
+  width: 450px;
+  padding-top: 1rem;
+  border-radius: 5px;
+
+  h3,
+  p {
+    text-align: center;
+    opacity: 1;
+  }
+
+  form {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background: #fff;
+    border-radius: 0 0 5px 5px;
+    padding: 1rem;
+
+    @media (max-width: 500px) {
+      margin: 1rem;
+    }
+
+    .captcha {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+    }
+  }
+}

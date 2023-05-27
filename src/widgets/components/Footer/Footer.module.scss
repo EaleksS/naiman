@@ -1,0 +1,36 @@
+.footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  height: 200px;
+  margin-top: 6rem;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background: #202020;
+    z-index: -1;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    img {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  p {
+    text-align: end;
+  }
+
+  a {
+    color: orange;
+  }
+}

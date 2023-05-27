@@ -1,0 +1,61 @@
+.gallery {
+  h2 {
+    text-align: center;
+  }
+
+  .items {
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+
+    .item {
+      width: 100%;
+      height: 330px;
+      object-fit: cover;
+
+      @media (min-width: 800px) {
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+          transform: scale(1.02);
+        }
+      }
+    }
+  }
+
+  .btn {
+    margin-top: 4rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .img {
+    height: 500px;
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .img_preview {
+      width: 100%;
+      height: 500px;
+      position: absolute;
+      left: 0;
+      right: 0;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .bg {
+      width: 100vw;
+      height: 500px;
+      position: absolute;
+      left: 0;
+      right: 0;
+      object-fit: cover;
+      z-index: -1;
+      background: rgba($color: #000000, $alpha: 0.4);
+    }
+  }
+}
