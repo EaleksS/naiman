@@ -18,8 +18,9 @@ export const Book: FC = (): JSX.Element => {
   const handleClick = () => {
     if (typeof captcha !== "string") return;
 
-    if (!valueTel && valueTel.includes("_")) return;
+    if (!valueTel) return;
 
+    if (valueTel.includes("_")) return;
     emailjs
       .sendForm(
         "service_uolwggt",

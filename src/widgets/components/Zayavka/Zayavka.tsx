@@ -22,7 +22,9 @@ export const Zayavka: FC = (): JSX.Element => {
   const handleClick = () => {
     if (typeof captcha !== "string") return;
 
-    if (!value && value.includes("_")) return;
+    if (!value) return;
+
+    if (value.includes("_")) return;
 
     emailjs
       .sendForm(
