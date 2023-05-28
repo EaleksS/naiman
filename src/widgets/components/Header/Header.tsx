@@ -2,14 +2,17 @@ import { FC } from "react";
 import styles from "./Header.module.scss";
 import { Text } from "../../../shared";
 import { Link } from "react-scroll";
+import { Link as LinkRouter } from "react-router-dom";
 
 export const Header: FC = (): JSX.Element => {
   return (
     <header className={styles.header}>
-      <div className={styles.logo}>
-        <img src="/logo2.svg" alt="logo" />
-        <Text type="h4">NAIMAN</Text>
-      </div>
+      <LinkRouter to="/">
+        <div className={styles.logo}>
+          <img src="/logo2.svg" alt="logo" />
+          <Text type="h4">NAIMAN</Text>
+        </div>
+      </LinkRouter>
       <nav className={styles.nav}>
         <ul>
           <li>

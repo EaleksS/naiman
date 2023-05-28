@@ -6,6 +6,7 @@ interface Props {
   children: ReactNode;
   onClick?: Dispatch<SetStateAction<any>>;
   mt?: string;
+  isActive?: boolean | undefined;
 }
 
 export const Button: FC<Props> = ({
@@ -13,12 +14,15 @@ export const Button: FC<Props> = ({
   children,
   mt = "0",
   onClick = () => "",
+  isActive = undefined,
 }): JSX.Element => {
   switch (type) {
     case "primary":
       return (
         <button
-          className={`${styles.btn} ${styles.primary}`}
+          className={`${styles.btn} ${styles.primary} ${
+            isActive && styles.active
+          } ${isActive === undefined && styles.def}`}
           style={{ marginTop: mt }}
           onClick={onClick}
         >
@@ -29,7 +33,9 @@ export const Button: FC<Props> = ({
     default:
       return (
         <button
-          className={`${styles.btn} ${styles.default}`}
+          className={`${styles.btn} ${styles.default} ${
+            isActive && styles.active
+          } ${isActive === undefined && styles.def}`}
           style={{ marginTop: mt }}
           onClick={onClick}
         >

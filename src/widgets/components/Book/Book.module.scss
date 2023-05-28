@@ -72,6 +72,15 @@
         text-align: center;
       }
 
+      .captcha {
+        padding-top: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+      }
+
       .inputs {
         margin-top: 2rem;
         display: flex;

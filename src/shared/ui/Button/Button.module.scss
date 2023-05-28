@@ -13,6 +13,18 @@
   line-height: 19px;
 
   position: relative;
+  opacity: 0.5;
+  cursor: not-allowed;
+
+  &.active {
+    opacity: 1;
+    cursor: pointer;
+  }
+
+  &.def {
+    opacity: 1;
+    cursor: pointer;
+  }
 }
 
 .primary {

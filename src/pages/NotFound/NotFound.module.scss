@@ -1,0 +1,21 @@
+@import "/src/app/styles/variables";
+
+.not_found {
+  height: calc(100vh - 388px);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 2rem;
+
+  h1 {
+    font-size: 15rem;
+    color: #202020;
+
+    @media (max-width: 800px) {
+      font-size: 10rem;
+    }
+  }
+}
