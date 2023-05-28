@@ -14,7 +14,7 @@ import {
 
 export const Main: FC = (): JSX.Element => {
   return (
-    <Layout>
+    <Layout btn={true}>
       <Preview />
       <About />
       <Gallery />

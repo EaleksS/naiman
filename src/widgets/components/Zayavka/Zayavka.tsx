@@ -54,14 +54,14 @@ export const Zayavka: FC = (): JSX.Element => {
           Оставьте заявку на получение планировок, фотографий и спецпредложений
           в
           <br />
-          NAIMABN
+          NAIMAN
         </Text>
         <Text color="#fff" mt=".5rem">
           Напишите Ваш номер телефона, к которому <br /> привязан WhatsApp
         </Text>
         <form ref={form} onSubmit={(e) => e.preventDefault()}>
           <Text type="h5">НОМЕР ТЕЛЕФОНА C WHATSAPP</Text>
-          <Input type="tel" value={value} setValue={setValue} />
+          <Input type="tel" value={value} setValue={setValue} placholder="" />
           <div className={styles.captcha}>
             <ReCAPTCHA
               sitekey="6LcRaPolAAAAANy9LLcMs7-1A2RHHFM32KMPI7fc"

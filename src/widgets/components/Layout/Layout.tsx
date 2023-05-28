@@ -6,14 +6,15 @@ import { Zayavka } from "../Zayavka/Zayavka";
 
 interface Props {
   children: ReactNode;
+  btn?: boolean;
 }
 
-export const Layout: FC<Props> = ({ children }): JSX.Element => {
+export const Layout: FC<Props> = ({ children, btn = false }): JSX.Element => {
   return (
     <div className={styles.wrapper} id="wrapper">
       <Header />
       {children}
-      <Footer />
+      <Footer btn={btn} />
       <Zayavka />
     </div>
   );

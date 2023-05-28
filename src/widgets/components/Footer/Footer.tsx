@@ -6,7 +6,11 @@ import { Link } from "react-router-dom";
 import { useStore } from "../../store/nav.store";
 import { Link as Link2 } from "react-scroll";
 
-export const Footer: FC = (): JSX.Element => {
+interface Props {
+  btn?: boolean;
+}
+
+export const Footer: FC<Props> = ({ btn = false }): JSX.Element => {
   const { setIsActive } = useStore();
 
   return (
@@ -19,10 +23,14 @@ export const Footer: FC = (): JSX.Element => {
           </Text>
         </div>
       </Link2>
-      <Button type="primary" onClick={setIsActive}>
-        <TbMessageCircle2Filled />
-        <Text fw="500">Получить информацию на WhatsApp</Text>
-      </Button>
+      {btn ? (
+        <Button type="primary" onClick={setIsActive}>
+          <TbMessageCircle2Filled />
+          <Text fw="500">Получить информацию на WhatsApp</Text>
+        </Button>
+      ) : (
+        <div></div>
+      )}
       <Text>
         <Link to=".#">Политика конфиденциальности</Link>
       </Text>
