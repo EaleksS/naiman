@@ -13,7 +13,7 @@ export const Zayavka: FC = (): JSX.Element => {
   const { setIsActive, isActive } = useStore();
 
   const [captcha, setCaptcha] = useState<string | null>(null);
-  const [value, setValue] = useState<string>("");
+  const [value, setValue] = useState<string>("9");
 
   const navigate = useNavigate();
 
@@ -23,6 +23,8 @@ export const Zayavka: FC = (): JSX.Element => {
     if (typeof captcha !== "string") return;
 
     if (!value) return;
+
+    if (value.length < 9) return;
 
     if (value.includes("_")) return;
 

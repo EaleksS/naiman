@@ -6,7 +6,7 @@ import emailjs from "@emailjs/browser";
 import ReCAPTCHA from "react-google-recaptcha";
 
 export const Book: FC = (): JSX.Element => {
-  const [valueTel, setValueTel] = useState<string>("");
+  const [valueTel, setValueTel] = useState<string>("9");
   const [valueName, setValueName] = useState<string>("");
 
   const [captcha, setCaptcha] = useState<string | null>(null);
@@ -20,7 +20,10 @@ export const Book: FC = (): JSX.Element => {
 
     if (!valueTel) return;
 
+    if (valueTel.length < 9) return;
+
     if (valueTel.includes("_")) return;
+
     emailjs
       .sendForm(
         "service_uolwggt",
