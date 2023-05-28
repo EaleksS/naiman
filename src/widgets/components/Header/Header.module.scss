@@ -4,10 +4,23 @@
   align-items: center;
   height: 92px;
 
+  @media (max-width: 800px) {
+    flex-direction: column;
+    justify-content: center;
+    height: 150px;
+    gap: 1rem;
+  }
+
   .logo {
     display: flex;
     align-items: center;
     gap: 1rem;
+    cursor: pointer;
+
+    @media (max-width: 800px) {
+      flex-direction: column;
+      gap: 0;
+    }
 
     img {
       width: 30px;
@@ -22,6 +35,12 @@
     ul {
       display: flex;
       gap: 3rem;
+
+      @media (max-width: 800px) {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+      }
 
       li {
         cursor: pointer;

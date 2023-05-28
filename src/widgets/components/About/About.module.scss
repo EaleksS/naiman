@@ -9,6 +9,14 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 2rem;
 
+    @media (max-width: 900px) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media (max-width: 600px) {
+      grid-template-columns: 1fr;
+    }
+
     .item {
       background: #fff;
       padding: 1rem;
@@ -49,7 +57,6 @@
     }
 
     .bg {
-      
       height: 500px;
       position: absolute;
       left: 0;

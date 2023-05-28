@@ -7,6 +7,7 @@ import { Button, Input, Text } from "../../../shared";
 import ReCAPTCHA from "react-google-recaptcha";
 import { TbMessageCircle2Filled } from "react-icons/tb";
 import { useStore } from "../../store/nav.store";
+import { AiFillCloseCircle } from "react-icons/ai";
 
 interface Props {
   children: ReactNode;
@@ -27,15 +28,17 @@ export const Layout: FC<Props> = ({ children }): JSX.Element => {
 
   //   if (!value && value.includes("_")) return;
   // };
-  
 
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} id="wrapper">
       <Header />
       {children}
       <Footer />
       <Modal isActive={isActive} setIsActive={setIsActive}>
         <div className={styles.container}>
+          <div className={styles.close} onClick={() => setIsActive(false)}>
+            <AiFillCloseCircle />
+          </div>
           <Text type="h3" color="#fff" fw="900">
             Оставьте заявку на получение планировок, фотографий и
             спецпредложений в

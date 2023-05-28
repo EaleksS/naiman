@@ -8,7 +8,7 @@ export const Plans: FC = (): JSX.Element => {
   const { setIsActive } = useStore();
 
   return (
-    <div className={styles.plans}>
+    <div className={styles.plans} id="plans">
       <Text type="h2" mt="60px" fw="500">
         Планировки NAIMAN RESIDENCE
       </Text>

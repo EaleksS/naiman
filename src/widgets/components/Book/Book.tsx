@@ -7,7 +7,7 @@ export const Book: FC = (): JSX.Element => {
   const [valueName, setValueName] = useState<string>("");
 
   return (
-    <div className={styles.book}>
+    <div className={styles.book} id="contacts">
       <img className={styles.img_preview} src="/i2.jpg" alt="preview" />
       <div className={styles.bg}></div>
 

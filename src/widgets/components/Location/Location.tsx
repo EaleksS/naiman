@@ -8,7 +8,7 @@ export const Location: FC = (): JSX.Element => {
   const { setIsActive } = useStore();
 
   return (
-    <div className={styles.location}>
+    <div className={styles.location}  id="location">
       <Text type="h2" mt="60px" fw="500">
         ЛОКАЦИЯ NAIMAN
       </Text>

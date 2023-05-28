@@ -8,7 +8,7 @@ export const Gallery: FC = (): JSX.Element => {
   const { setIsActive } = useStore();
 
   return (
-    <div className={styles.gallery}>
+    <div className={styles.gallery} id="gallery">
       <Text type="h2" mt="60px" fw="500">
         NAIMAN RESIDENCE
       </Text>

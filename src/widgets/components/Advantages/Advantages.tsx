@@ -8,7 +8,7 @@ export const Advantages: FC = (): JSX.Element => {
   const { setIsActive } = useStore();
 
   return (
-    <div className={styles.advantages}>
+    <div className={styles.advantages} id="advantages">
       <Text type="h2" mt="60px" fw="500">
         Преимущества NAIMAN RESIDENCE
       </Text>

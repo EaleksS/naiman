@@ -4,7 +4,7 @@ import { Text } from "../../../shared";
 
 export const About: FC = (): JSX.Element => {
   return (
-    <div className={styles.about}>
+    <div className={styles.about} id="about">
       <Text type="h2" mt="60px" fw="500">
         NAIMAN RESIDENCE
       </Text>

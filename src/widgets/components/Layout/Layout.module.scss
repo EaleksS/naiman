@@ -9,6 +9,10 @@ body {
   margin: 0 auto;
 
   overflow-x: hidden;
+
+  @media (max-width: 1200px) {
+    padding: 0 1rem;
+  }
 }
 
 .container {
@@ -16,6 +20,29 @@ body {
   width: 450px;
   padding-top: 1rem;
   border-radius: 5px;
+  position: relative;
+
+  .close {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #fff;
+    font-size: 3rem;
+  }
+
+  @media (max-width: 800px) {
+    .close {
+      display: block;
+    }
+
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 0px;
+  }
 
   h3,
   p {
@@ -32,8 +59,9 @@ body {
     border-radius: 0 0 5px 5px;
     padding: 1rem;
 
-    @media (max-width: 500px) {
+    @media (max-width: 800px) {
       margin: 1rem;
+      border-radius: 5px;
     }
 
     .captcha {

@@ -1,6 +1,7 @@
 import { FC } from "react";
 import styles from "./Header.module.scss";
 import { Text } from "../../../shared";
+import { Link } from "react-scroll";
 
 export const Header: FC = (): JSX.Element => {
   return (
@@ -12,19 +13,29 @@ export const Header: FC = (): JSX.Element => {
       <nav className={styles.nav}>
         <ul>
           <li>
-            <Text>О комплексе</Text>
+            <Link to="about" smooth={true}>
+              <Text>О комплексе</Text>
+            </Link>
           </li>
           <li>
-            <Text>Фото</Text>
+            <Link to="gallery" smooth={true}>
+              <Text>Фото</Text>
+            </Link>
           </li>
           <li>
-            <Text>Преимущества</Text>
+            <Link to="advantages" smooth={true}>
+              <Text>Преимущества</Text>
+            </Link>
           </li>
           <li>
-            <Text>Планировки</Text>
+            <Link to="plans" smooth={true}>
+              <Text>Планировки</Text>
+            </Link>
           </li>
           <li>
-            <Text>Контакты</Text>
+            <Link to="contacts" smooth={true}>
+              <Text>Контакты</Text>
+            </Link>
           </li>
         </ul>
       </nav>
