@@ -95,6 +95,7 @@ export const Book: FC = (): JSX.Element => {
               isActive={
                 typeof captcha === "string" &&
                 valueTel &&
+                valueTel.length > 9 &&
                 !valueTel.includes("_")
                   ? true
                   : false

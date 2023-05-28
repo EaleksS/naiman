@@ -72,7 +72,10 @@ export const Zayavka: FC = (): JSX.Element => {
           </div>
           <Button
             isActive={
-              typeof captcha === "string" && value && !value.includes("_")
+              typeof captcha === "string" &&
+              value &&
+              value.length > 9 &&
+              !value.includes("_")
                 ? true
                 : false
             }
