@@ -15,37 +15,37 @@ export const Location: FC = (): JSX.Element => {
 
       <div className={styles.items}>
         <div className={styles.item}>
-          <img src="/img/10.jpg" alt="svg" />
+          <img src="/img/10.webp" alt="svg" />
           <Text type="h4" fw="600">
             Пляж 5 мин
           </Text>
         </div>
         <div className={styles.item}>
-          <img src="/img/11.jpg" alt="svg" />
+          <img src="/img/11.webp" alt="svg" />
           <Text type="h4" fw="600">
             Ж/Д вокзал 10 мин
           </Text>
         </div>
         <div className={styles.item}>
-          <img src="/img/12.jpg" alt="svg" />
+          <img src="/img/12.webp" alt="svg" />
           <Text type="h4" fw="600">
             Центр Сочи 10 мин
           </Text>
         </div>
         <div className={styles.item}>
-          <img src="/img/13.jpg" alt="svg" />
+          <img src="/img/13.webp" alt="svg" />
           <Text type="h4" fw="600">
             Аэропорт 19 мин
           </Text>
         </div>
         <div className={styles.item}>
-          <img src="/img/14.jpg" alt="svg" />
+          <img src="/img/14.webp" alt="svg" />
           <Text type="h4" fw="600">
             Олимпийский парк 30 мин
           </Text>
         </div>
         <div className={styles.item}>
-          <img src="/img/15.jpg" alt="svg" />
+          <img src="/img/15.webp" alt="svg" />
           <Text type="h4" fw="600">
             Красная Поляна 50 мин
           </Text>

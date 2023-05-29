@@ -14,19 +14,19 @@ export const Plans: FC = (): JSX.Element => {
       </Text>
       <div className={styles.items}>
         <div className={styles.item}>
-          <img src="/i3.jpg" alt="svg" />
+          <img src="/i3.webp" alt="svg" />
           <Text type="h4" fw="600">
             Типовой план этажа
           </Text>
         </div>
         <div className={styles.item}>
-          <img src="/i3.jpg" alt="svg" />
+          <img src="/i3.webp" alt="svg" />
           <Text type="h4" fw="600">
             Планировка 1-комн 37 м2
           </Text>
         </div>
         <div className={styles.item}>
-          <img src="/i3.jpg" alt="svg" />
+          <img src="/i3.webp" alt="svg" />
           <Text type="h4" fw="600">
             Планировка 2-комн 60 м2
           </Text>

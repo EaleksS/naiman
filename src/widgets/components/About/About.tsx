@@ -37,7 +37,7 @@ export const About: FC = (): JSX.Element => {
       </div>
 
       <div className={styles.img}>
-        <img className={styles.img_preview} src="/i2.jpg" alt="preview" />
+        <img className={styles.img_preview} src="/i2.webp" alt="preview" />
         <div className={styles.bg}></div>
       </div>
     </div>

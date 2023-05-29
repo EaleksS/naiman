@@ -43,7 +43,7 @@ export const Book: FC = (): JSX.Element => {
 
   return (
     <div className={styles.book} id="contacts">
-      <img className={styles.img_preview} src="/i2.jpg" alt="preview" />
+      <img className={styles.img_preview} src="/i2.webp" alt="preview" />
       <div className={styles.bg}></div>
 
       <div className={styles.content}>
