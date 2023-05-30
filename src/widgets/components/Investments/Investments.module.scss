@@ -1,0 +1,15 @@
+.investments {
+  margin-top: 6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  img {
+    width: 100%;
+  }
+
+  button {
+    margin: 0 auto;
+    max-width: 400px;
+  }
+}

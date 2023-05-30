@@ -2,9 +2,11 @@ import { FC } from "react";
 import {
   About,
   Advantages,
+  Apartments,
   Book,
   Contacts,
   Gallery,
+  Investments,
   Layout,
   Location,
   Plans,
@@ -20,7 +22,9 @@ export const Main: FC = (): JSX.Element => {
       <Gallery />
       <Advantages />
       <Location />
+      <Apartments />
       <Plans />
+      <Investments />
       <Book />
       <Contacts />
     </Layout>

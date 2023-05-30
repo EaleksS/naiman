@@ -11,25 +11,29 @@ export const About: FC = (): JSX.Element => {
 
       <div className={styles.items}>
         <div className={styles.item}>
-          <img src="/about/p1.svg" alt="svg" />
+          <img src="/adv/4.svg" alt="svg" />
           <Text fw="300" fz="16px">
-            Сильная архитектурная концепция от бюро UNK project
+            Эскроу-счета
+            <br />
+            ФЗ-214
+            <br />
+            Рассрочка до конца строительства
           </Text>
         </div>
         <div className={styles.item}>
-          <img src="/about/p2.svg" alt="svg" />
+          <img src="/adv/7.svg" alt="svg" />
           <Text fw="300" fz="16px">
-            Надёжный застройщик с опытом работы в Сочи АЛЬПИКА GROUP
+            Надёжный застройщик с опытом работы в Сочи
           </Text>
         </div>
         <div className={styles.item}>
-          <img src="/about/p3.svg" alt="svg" />
+          <img src="/adv/8.svg" alt="svg" />
           <Text fw="300" fz="16px">
             Проектное финансирование от Сбербанк
           </Text>
         </div>
         <div className={styles.item}>
-          <img src="/about/p4.svg" alt="svg" />
+          <img src="/adv/9.svg" alt="svg" />
           <Text fw="300" fz="16px">
             Управление от гостиничного оператора мирового уровня
           </Text>

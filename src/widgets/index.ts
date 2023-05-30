@@ -7,6 +7,8 @@ import { Location } from "./components/Location/Location";
 import { Plans } from "./components/Plans/Plans";
 import { Book } from "./components/Book/Book";
 import { Contacts } from "./components/Contacts/Contacts";
+import { Apartments } from "./components/Apartments/Apartments";
+import { Investments } from "./components/Investments/Investments";
 
 export {
   Layout,
@@ -18,4 +20,6 @@ export {
   Plans,
   Book,
   Contacts,
+  Apartments,
+  Investments,
 };

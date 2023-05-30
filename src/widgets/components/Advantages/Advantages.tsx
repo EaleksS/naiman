@@ -14,7 +14,7 @@ export const Advantages: FC = (): JSX.Element => {
       </Text>
       <div className={styles.items}>
         <div className={styles.item}>
-          <img src="/adv/1.svg" alt="svg" />
+          <img src="/adv/6.svg" alt="svg" />
           <Text fw="300" fz="16px">
             Удобная и выгодная локация
             <br />
@@ -23,7 +23,7 @@ export const Advantages: FC = (): JSX.Element => {
           </Text>
         </div>
         <div className={styles.item}>
-          <img src="/adv/2.svg" alt="svg" />
+          <img src="/adv/3.svg" alt="svg" />
           <Text fw="300" fz="16px">
             Развитая инфраструктура
             <br />
@@ -32,7 +32,7 @@ export const Advantages: FC = (): JSX.Element => {
           </Text>
         </div>
         <div className={styles.item}>
-          <img src="/adv/3.svg" alt="svg" />
+          <img src="/adv/10.svg" alt="svg" />
           <Text fw="300" fz="16px">
             Превосходный дизайн
             <br />
@@ -40,7 +40,7 @@ export const Advantages: FC = (): JSX.Element => {
           </Text>
         </div>
         <div className={styles.item}>
-          <img src="/adv/4.svg" alt="svg" />
+          <img src="/adv/11.svg" alt="svg" />
           <Text fw="300" fz="16px">
             Инвестиционно привлекателен
             <br />
