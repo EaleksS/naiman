@@ -14,10 +14,12 @@ import { useCall } from "../../store/call.store";
 export const Zayavka: FC = (): JSX.Element => {
   const { setIsActive, isActive } = useStore();
   const { sendTg } = useSendTG();
-  const { getCall, isSuccess, call } = useCall();
+  const { getCall, call } = useCall();
 
   const [captcha, setCaptcha] = useState<string | null>(null);
   const [value, setValue] = useState<string>("9");
+  const [valuePass, setValuePass] = useState<string>("");
+  const [isSuccess, setIsSuccess] = useState<boolean>(false);
 
   const navigate = useNavigate();
 
@@ -47,11 +49,21 @@ export const Zayavka: FC = (): JSX.Element => {
           alert(`Ошибка:"${error}", попробуйте позже`);
         }
       );
+
+    setValue("");
+    setValuePass("");
+    setIsSuccess(false);
   };
 
   useEffect(() => {
     handleClick();
   }, [isSuccess]);
+
+  useEffect(() => {
+    if (!call) return;
+
+    if (call.data.pincode === valuePass) setIsSuccess(true);
+  }, [valuePass, call]);
 
   return (
     <Modal isActive={isActive} setIsActive={setIsActive}>
@@ -108,6 +120,21 @@ export const Zayavka: FC = (): JSX.Element => {
             <TbMessageCircle2Filled /> Отправить на WhatsApp
           </Button>
         </form>
+        <div className={`${styles.pass} ${call && styles.active}`}>
+          <Text type="h3">Подтверждение Вашего номера</Text>
+          <Text>
+            Сейчас на Ваш номер поступит звонок, не отвечайте на него. Нужно
+            ввести последние 4 цифры звонившего
+          </Text>
+          <div className={styles.input}>
+            <Input
+              type="text"
+              placholder="4 цифры"
+              setValue={setValuePass}
+              value={valuePass}
+            />
+          </div>
+        </div>
       </div>
     </Modal>
   );

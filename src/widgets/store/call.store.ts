@@ -14,14 +14,12 @@ interface Call {
 }
 
 type Store = {
-  isSuccess: boolean;
   call: Call | null;
   getCall: (phone: string) => void;
 };
 
 export const useCall = create(
-  devtools<Store>((set, get) => ({
-    isSuccess: false,
+  devtools<Store>((set) => ({
     call: null,
     getCall: async (phone) => {
       const customer_phonenumber = phone
@@ -38,17 +36,14 @@ export const useCall = create(
           )
           .then((res) => {
             set({ call: res.data });
-            const pass = prompt("Введите последние 4 цифры номера");
-            if (pass === get().call?.data.pincode) {
-              set({ isSuccess: true });
-            }
+
+            setTimeout(() => {
+              set({ call: null });
+              
+            }, 100000);
           })
-          .catch((e) => {
-            set({ isSuccess: false });
-            console.error(e);
-          });
+          .catch((e) => console.error(e));
       } catch (error) {
-        set({ isSuccess: false });
         console.error("ошибка", error);
       }
     },
