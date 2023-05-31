@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "../../../node_modules/axios";
 import { create } from "zustand";
 import { devtools } from "zustand/middleware";
 
@@ -8,65 +8,31 @@ type Store = {
 };
 
 export const useCall = create(
-  devtools<Store>((set) => ({
+  devtools<Store>(() => ({
     isSuccess: null,
     getCall: async (phone) => {
-      const YOUR_PUBLICK_KEY = "6496a0b33f8e3c5164fc703a56d7a367";
+      // const YOUR_PUBLICK_KEY = "6496a0b33f8e3c5164fc703a56d7a367";
       const customer_phonenumber = phone
         .replaceAll("(", "")
         .replaceAll(")", "")
         .replaceAll("-", "")
-        .replaceAll(" ", "");
-      const campaign_id = "1896905949";
+        .replaceAll(" ", "")
+        .replaceAll("+", "");
+      // const campaign_id = "1896905949";
       console.log(customer_phonenumber);
 
-      const URL_API = `https://zvonok.com/manager/cabapi_external/api/v1/phones/confirm/`;
-      const URL_API2 = `https://zvonok.com/manager/cabapi_external/api/v1/phones/calls_by_phone/`;
+      // const URL_API = `https://zvonok.com/manager/cabapi_external/api/v1/phones/confirm/`;
+      // const URL_API3 = `https://zvonok.com/manager/cabapi_external/api/v1/phones/calls_by_phone/?campaign_id=149850533&phone=%2B${customer_phonenumber}&public_key=6496a0b33f8e3c5164fc703a56d7a367`;
+      const URL_API2 = `https://zvonok.com/manager/cabapi_external/api/v1/phones/flashcall/?campaign_id=149850533&phone=%2B${customer_phonenumber}&public_key=6496a0b33f8e3c5164fc703a56d7a367`;
 
-      const formData = new FormData();
-      formData.append("public_key", YOUR_PUBLICK_KEY);
-      formData.append("phone", customer_phonenumber);
-      formData.append("campaign_id", campaign_id);
-
-      const config = {
-        method: "post",
-        maxBodyLength: Infinity,
-        url: URL_API,
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-        data: formData,
-      };
-
-      const config2 = {
-        method: "get",
-        maxBodyLength: Infinity,
-        url: URL_API2,
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-        data: formData,
-      };
-
-      axios(config)
+      axios
+        .post(URL_API2)
         .then(function (response) {
-          console.log(1, JSON.stringify(response.data));
-          set({ isSuccess: true });
+          console.log(response.data);
         })
         .catch(function (error) {
-          console.log(1, error);
+          console.log(error);
         });
-
-      setTimeout(() => {
-        axios(config2)
-          .then(function (response) {
-            console.log(2, JSON.stringify(response.data));
-            set({ isSuccess: true });
-          })
-          .catch(function (error) {
-            console.log(2, error);
-          });
-      }, 60000);
 
       //   try {
       //     await axios
