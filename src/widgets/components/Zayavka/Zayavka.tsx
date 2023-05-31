@@ -1,4 +1,4 @@
-import { FC, useRef, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import styles from "./Zayavka.module.scss";
 import { Modal } from "../../../entities";
 import { useStore } from "../../store/nav.store";
@@ -14,7 +14,7 @@ import { useCall } from "../../store/call.store";
 export const Zayavka: FC = (): JSX.Element => {
   const { setIsActive, isActive } = useStore();
   const { sendTg } = useSendTG();
-  const { getCall, isSuccess } = useCall();
+  const { getCall, isSuccess, call } = useCall();
 
   const [captcha, setCaptcha] = useState<string | null>(null);
   const [value, setValue] = useState<string>("9");
@@ -24,21 +24,11 @@ export const Zayavka: FC = (): JSX.Element => {
   const form = useRef<any>(null);
 
   const handleClick = () => {
-    if (typeof captcha !== "string") return;
-
-    if (!value) return;
-
-    if (value.length < 9) return;
-
-    if (value.includes("_")) return;
-
-    getCall(value);
-    alert("Вам сейчас позвонят");
-
-    if (typeof isSuccess !== "boolean") return;
+    if (!isSuccess) return;
+    if (!call) return;
 
     // отправка сообщений на телеграмм
-    sendTg("NAIMAN", value, "не указано", isSuccess);
+    sendTg("NAIMAN", call.data.phone, "не указано", isSuccess);
 
     // отправка сообщений на почту
     emailjs
@@ -58,6 +48,10 @@ export const Zayavka: FC = (): JSX.Element => {
         }
       );
   };
+
+  useEffect(() => {
+    handleClick();
+  }, [isSuccess]);
 
   return (
     <Modal isActive={isActive} setIsActive={setIsActive}>
@@ -98,7 +92,18 @@ export const Zayavka: FC = (): JSX.Element => {
                 ? true
                 : false
             }
-            onClick={handleClick}
+            onClick={() => {
+              if (typeof captcha !== "string") return;
+
+              if (!value) return;
+
+              if (value.length < 9) return;
+
+              if (value.includes("_")) return;
+
+              handleClick();
+              getCall(value);
+            }}
           >
             <TbMessageCircle2Filled /> Отправить на WhatsApp
           </Button>

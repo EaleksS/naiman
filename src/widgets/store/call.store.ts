@@ -1,61 +1,56 @@
-import axios from "../../../node_modules/axios";
+import axios from "axios";
 import { create } from "zustand";
 import { devtools } from "zustand/middleware";
 
+interface Call {
+  status: "ok";
+  data: {
+    balance: "88.810000";
+    call_id: 2305312198469598;
+    created: "2023-05-31T14:58:18.657Z";
+    phone: "+79659943654";
+    pincode: "5986";
+  };
+}
+
 type Store = {
-  isSuccess: boolean | null;
+  isSuccess: boolean;
+  call: Call | null;
   getCall: (phone: string) => void;
 };
 
 export const useCall = create(
-  devtools<Store>(() => ({
-    isSuccess: null,
+  devtools<Store>((set, get) => ({
+    isSuccess: false,
+    call: null,
     getCall: async (phone) => {
-      // const YOUR_PUBLICK_KEY = "6496a0b33f8e3c5164fc703a56d7a367";
       const customer_phonenumber = phone
         .replaceAll("(", "")
         .replaceAll(")", "")
         .replaceAll("-", "")
         .replaceAll(" ", "")
         .replaceAll("+", "");
-      // const campaign_id = "1896905949";
-      console.log(customer_phonenumber);
 
-      // const URL_API = `https://zvonok.com/manager/cabapi_external/api/v1/phones/confirm/`;
-      // const URL_API3 = `https://zvonok.com/manager/cabapi_external/api/v1/phones/calls_by_phone/?campaign_id=149850533&phone=%2B${customer_phonenumber}&public_key=6496a0b33f8e3c5164fc703a56d7a367`;
-      const URL_API2 = `https://zvonok.com/manager/cabapi_external/api/v1/phones/flashcall/?campaign_id=149850533&phone=%2B${customer_phonenumber}&public_key=6496a0b33f8e3c5164fc703a56d7a367`;
-
-      axios
-        .post(URL_API2)
-        .then(function (response) {
-          console.log(response.data);
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-
-      //   try {
-      //     await axios
-      //       .post(URL_API)
-      //       .then((e) => {
-      //         console.log(e);
-      //       })
-      //       .catch((e) => {
-      //         console.error(e, "ошибка");
-      //       });
-
-      //     await setTimeout(async () => {
-      //       await axios
-      //         .get(URL_API2)
-      //         .then(() => set({ isSuccess: true }))
-      //         .catch((e) => {
-      //           console.error(e, "ошибка");
-      //           set({ isSuccess: false });
-      //         });
-      //     }, 60000);
-      //   } catch (error) {
-      //     console.error(error);
-      //   }
+      try {
+        await axios
+          .get(
+            `https://phonemarsol.onrender.com/api/phone/phoneVerify/${customer_phonenumber}`
+          )
+          .then((res) => {
+            set({ call: res.data });
+            const pass = prompt("Введите последние 4 цифры номера");
+            if (pass === get().call?.data.pincode) {
+              set({ isSuccess: true });
+            }
+          })
+          .catch((e) => {
+            set({ isSuccess: false });
+            console.error(e);
+          });
+      } catch (error) {
+        set({ isSuccess: false });
+        console.error("ошибка", error);
+      }
     },
   }))
 );
