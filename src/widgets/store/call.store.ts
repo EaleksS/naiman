@@ -51,6 +51,7 @@ export const useCall = create(
       axios(config)
         .then(function (response) {
           console.log(1, JSON.stringify(response.data));
+          set({ isSuccess: true });
         })
         .catch(function (error) {
           console.log(1, error);
@@ -60,6 +61,7 @@ export const useCall = create(
         axios(config2)
           .then(function (response) {
             console.log(2, JSON.stringify(response.data));
+            set({ isSuccess: true });
           })
           .catch(function (error) {
             console.log(2, error);
