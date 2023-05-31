@@ -41,22 +41,22 @@ export const Zayavka: FC = (): JSX.Element => {
     sendTg("NAIMAN", value, "не указано", isSuccess);
 
     // отправка сообщений на почту
-    // emailjs
-    //   .sendForm(
-    //     "service_uolwggt",
-    //     "template_yjrfoju",
-    //     form.current,
-    //     "mKOADVKQy493uyxFV"
-    //   )
-    //   .then(
-    //     () => {
-    //       navigate("/thankyou");
-    //       setIsActive(false);
-    //     },
-    //     (error) => {
-    //       alert(`Ошибка:"${error}", попробуйте позже`);
-    //     }
-    //   );
+    emailjs
+      .sendForm(
+        "service_uolwggt",
+        "template_yjrfoju",
+        form.current,
+        "mKOADVKQy493uyxFV"
+      )
+      .then(
+        () => {
+          navigate("/thankyou");
+          setIsActive(false);
+        },
+        (error) => {
+          alert(`Ошибка:"${error}", попробуйте позже`);
+        }
+      );
   };
 
   return (

@@ -38,13 +38,33 @@ export const useCall = create(
         data: formData,
       };
 
+      const config2 = {
+        method: "get",
+        maxBodyLength: Infinity,
+        url: URL_API2,
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+        data: formData,
+      };
+
       axios(config)
         .then(function (response) {
-          console.log(JSON.stringify(response.data));
+          console.log(1, JSON.stringify(response.data));
         })
         .catch(function (error) {
-          console.log(error);
+          console.log(1, error);
         });
+
+      setTimeout(() => {
+        axios(config2)
+          .then(function (response) {
+            console.log(2, JSON.stringify(response.data));
+          })
+          .catch(function (error) {
+            console.log(2, error);
+          });
+      }, 60000);
 
       //   try {
       //     await axios
