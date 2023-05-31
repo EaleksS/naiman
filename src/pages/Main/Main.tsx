@@ -17,6 +17,7 @@ import {
 export const Main: FC = (): JSX.Element => {
   return (
     <Layout btn={true}>
+      
       <Preview />
       <About />
       <Gallery />
@@ -27,6 +28,7 @@ export const Main: FC = (): JSX.Element => {
       <Investments />
       <Book />
       <Contacts />
+
     </Layout>
   );
 };

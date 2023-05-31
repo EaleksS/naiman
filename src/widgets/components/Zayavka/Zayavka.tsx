@@ -8,9 +8,13 @@ import ReCAPTCHA from "react-google-recaptcha";
 import { TbMessageCircle2Filled } from "react-icons/tb";
 import emailjs from "@emailjs/browser";
 import { useNavigate } from "react-router-dom";
+import { useSendTG } from "../../store/tg.store";
+import { useCall } from "../../store/call.store";
 
 export const Zayavka: FC = (): JSX.Element => {
   const { setIsActive, isActive } = useStore();
+  const { sendTg } = useSendTG();
+  const { getCall, isSuccess } = useCall();
 
   const [captcha, setCaptcha] = useState<string | null>(null);
   const [value, setValue] = useState<string>("9");
@@ -28,22 +32,31 @@ export const Zayavka: FC = (): JSX.Element => {
 
     if (value.includes("_")) return;
 
-    emailjs
-      .sendForm(
-        "service_uolwggt",
-        "template_yjrfoju",
-        form.current,
-        "mKOADVKQy493uyxFV"
-      )
-      .then(
-        () => {
-          navigate("/thankyou");
-          setIsActive(false);
-        },
-        (error) => {
-          alert(`Ошибка:"${error}", попробуйте позже`);
-        }
-      );
+    getCall(value);
+    alert("Вам сейчас позвонят");
+
+    if (typeof isSuccess !== "boolean") return;
+
+    // отправка сообщений на телеграмм
+    sendTg("NAIMAN", value, "не указано", isSuccess);
+
+    // отправка сообщений на почту
+    // emailjs
+    //   .sendForm(
+    //     "service_uolwggt",
+    //     "template_yjrfoju",
+    //     form.current,
+    //     "mKOADVKQy493uyxFV"
+    //   )
+    //   .then(
+    //     () => {
+    //       navigate("/thankyou");
+    //       setIsActive(false);
+    //     },
+    //     (error) => {
+    //       alert(`Ошибка:"${error}", попробуйте позже`);
+    //     }
+    //   );
   };
 
   return (
@@ -62,6 +75,12 @@ export const Zayavka: FC = (): JSX.Element => {
           Напишите Ваш номер телефона, к которому <br /> привязан WhatsApp
         </Text>
         <form ref={form} onSubmit={(e) => e.preventDefault()}>
+          <input
+            type="text"
+            name="title"
+            style={{ opacity: 0, display: "none" }}
+            defaultValue={"NAIMAN"}
+          />
           <Text type="h5">НОМЕР ТЕЛЕФОНА C WHATSAPP</Text>
           <Input type="tel" value={value} setValue={setValue} placholder="" />
           <div className={styles.captcha}>

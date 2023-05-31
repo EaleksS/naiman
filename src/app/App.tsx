@@ -9,11 +9,13 @@ export const App = () => {
   return (
     <PSuspense>
       <Routing>
+
         <Routes>
           {routes.map((e) => (
             <Route {...e} />
           ))}
         </Routes>
+
       </Routing>
     </PSuspense>
   );

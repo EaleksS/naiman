@@ -4,10 +4,13 @@ import { Button, Input, Text } from "../../../shared";
 import { useNavigate } from "react-router-dom";
 import emailjs from "@emailjs/browser";
 import ReCAPTCHA from "react-google-recaptcha";
+import { useSendTG } from "../../store/tg.store";
 
 export const Book: FC = (): JSX.Element => {
   const [valueTel, setValueTel] = useState<string>("9");
   const [valueName, setValueName] = useState<string>("");
+
+  const { sendTg } = useSendTG();
 
   const [captcha, setCaptcha] = useState<string | null>(null);
 
@@ -23,6 +26,8 @@ export const Book: FC = (): JSX.Element => {
     if (valueTel.length < 9) return;
 
     if (valueTel.includes("_")) return;
+
+    sendTg("NAIMAN", valueTel, valueName);
 
     emailjs
       .sendForm(
@@ -70,6 +75,12 @@ export const Book: FC = (): JSX.Element => {
         </div>
         <div className={styles.form}>
           <form ref={form} onSubmit={(e) => e.preventDefault()}>
+            <input
+              type="text"
+              name="title"
+              style={{ opacity: 0, display: "none" }}
+              defaultValue={"NAIMAN"}
+            />
             <Text type="h4">Забронировать апартамент сейчас</Text>
             <div className={styles.inputs}>
               <Input
